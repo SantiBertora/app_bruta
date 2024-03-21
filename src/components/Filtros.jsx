@@ -9,9 +9,9 @@ const Filtros = () => {
     const [subFilter, setSubFilter] = useState(null);
 
     const subFilters = {
-      bebidas: ['APERITIVOS', 'CÓCTELES', 'SIN ALCOHOL', 'CERVEZAS', 'LICORES'],
+      bebidas: ['APERITIVOS', 'GINTONICS', 'CÓCTELES CLÁSICOS', 'CÓCTELES DE AUTOR', 'SIN ALCOHOL', 'CERVEZAS', 'LICORES'],
       vinos: ['TINTOS', 'BLANCOS', 'ROSADOS', 'ESPUMANTES'],
-      platos: ['TODOS', 'VEGETARIANOS', 'VEGANOS', 'CELÍACOS', 'SIN LACTOSA'],
+      platos: ['TODOS', 'VEGETARIANOS', 'VEGANOS', 'SIN GLUTEN', 'SIN LACTOSA'],
       postres: ['POSTRES', 'CAFETERÍA', 'DIGESTIVOS']
     };
   

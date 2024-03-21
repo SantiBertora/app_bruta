@@ -1,17 +1,23 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
 import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, ButtonGroup, Button, Divider } from '@chakra-ui/react';
+import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const EnglishMenu = ({ mainFilter, subFilter}) => {
 
     const [menu, setMenu] = useState([]);
   
-  
     useEffect(() => {
-      fetch('src/menu.json')  // Ruta relativa al archivo JSON en la carpeta src
-        .then(response => response.json())
-        .then(data => setMenu(data))
-        .catch(error => console.error('Error fetching data:', error));
+      const db = getFirestore();
+  
+      const platosCollection = collection(db, 'platos');
+      const bebidasCollection = collection(db, 'bebidas');
+      const postresCollection = collection(db, 'postres');
+      const vinosCollection = collection(db, 'vinos');
+      getDocs(platosCollection).then((snapshot) => {
+        const docs = snapshot.docs.map((doc) => doc.data());
+        setMenu(docs);
+      });
     }, []);
   
     const menuFiltrado = menu.filter((producto) => {
