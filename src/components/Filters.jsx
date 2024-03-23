@@ -10,9 +10,9 @@ const Filters = () => {
   const [subFilter, setSubFilter] = useState(null);
 
   const subFilters = {
-    drinks: ['APERITIVES', 'GIN&TONICS','CLASSIC COCKTAILS', 'SIGNATURE COCKTAILS', 'NO ALCOHOL', 'BEERS', 'LIQUORS'],
+    drinks: ['APERITIVES', 'GIN&TONICS','OTHER CLASSIC COCKTAILS', 'OTHER SIGNATURE COCKTAILS', 'NO ALCOHOL', 'BEERS', 'LIQUORS AND SPIRITS'],
     wines: ['RED', 'WHITE', 'PINK', 'SPARKLING'],
-    courses: ['ALL', 'VEGETARIANS', 'VEGAN', 'NO GLUTEN', 'NO LACTOSE'],
+    courses: ['ALL', 'VEGETARIANS', 'NO GLUTEN', 'NO LACTOSE'],
     desserts: ['DESSERTS', 'COFFEE', 'DIGESTIVE']
   };
 

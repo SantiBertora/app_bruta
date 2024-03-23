@@ -1,62 +1,73 @@
 import React from 'react'
 import { useState, useEffect } from 'react';
-import { Card, CardBody, CardFooter, Image, Stack, Heading, Text, ButtonGroup, Button, Divider } from '@chakra-ui/react';
+import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
 
 const Menu = ({ mainFilter, subFilter}) => {
 
-  const [menu, setMenu] = useState([]);
+  const [platos, setPlatos] = useState([]);
+  const [bebidas, setBebidas] = useState([]);
+  const [postres, setPostres] = useState([]);
+  const [vinos, setVinos] = useState([]);
 
   useEffect(() => {
     const db = getFirestore();
 
     const platosCollection = collection(db, 'platos');
-    const bebidasCollection = collection(db, 'bebidas');
-    const postresCollection = collection(db, 'postres');
-    const vinosCollection = collection(db, 'vinos');
     getDocs(platosCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data());
-      setMenu(docs);
+      setPlatos(docs);
+      console.log(platosCollection)
     });
   }, []);
 
-  const menuFiltrado = menu.filter((producto) => {
-    // Filtrar por mainFilter
-    if (mainFilter === producto.categoria) {
-      if (subFilter === 'TODOS') {
-        return true;
-      }
-      // Si subFilter es null, mostrar todos los productos
-      if (subFilter === null) {
-        return true;
-      }
-      // Filtrar adicionalmente por subFilter
-      return producto[subFilter.toLowerCase()] === true;
-    }
-    return false;
-  });
+  useEffect(() => {
+    const db = getFirestore();
+
+    const bebidasCollection = collection(db, 'bebidas');
+    getDocs(bebidasCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data());
+      setBebidas(docs);
+    });
+  }, []);
+
+  useEffect(() => {
+    const db = getFirestore();
+
+    const postresCollection = collection(db, 'postres');
+    getDocs(postresCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data());
+      setPostres(docs);
+    });
+  }, []);
+
+  useEffect(() => {
+    const db = getFirestore();
+    const vinosCollection = collection(db, 'vinos');
+    getDocs(vinosCollection).then((snapshot) => {
+      const docs = snapshot.docs.map((doc) => doc.data());
+      setVinos(docs);
+    });
+  }, []);
+
+  const menu = [];
+
+  if (mainFilter === 'platos') {
+    menu.push(...platos);
+  } else if (mainFilter === 'bebidas') {
+    menu.push(...bebidas);
+  } else if (mainFilter === 'postres') {
+    menu.push(...postres);
+  } else if (mainFilter === 'vinos') {
+    menu.push(...vinos);
+  }
+
+  console.log(menu);
 
   return (
-    <div>
-    {menuFiltrado.map((producto) => (
-    <Card maxW='sm' key={producto.nombre} className='cardMenu'>
-  <CardBody className='productContainer'>
-    <Image
-      src={producto.img}
-      alt='imagen del producto'
-      borderRadius='lg'
-      className='imgMenu'
-    />
-    <Stack className='datosMenu'>
-      <Heading size='md'>{producto.nombre}</Heading>
-      <Text fontSize='2xl'>
-        ${producto.precio}
-      </Text>
-    </Stack>
-  </CardBody>
-</Card>
-    ))}
-    </div>
+    <div> 
+      
+    </div> 
   )
 }
 
