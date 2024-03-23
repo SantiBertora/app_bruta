@@ -12,13 +12,14 @@ import { getAnalytics } from "firebase/analytics";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCrl2ITOzHzMDUeQ41cRGLnLoVFBV9xZ1c",
-  authDomain: "bruta-43805.firebaseapp.com",
-  projectId: "bruta-43805",
-  storageBucket: "bruta-43805.appspot.com",
-  messagingSenderId: "999249112974",
-  appId: "1:999249112974:web:95c91f6b94d0d7efedbedf",
-  measurementId: "G-XZ28MBB23X"
+  apiKey: "AIzaSyDMH_E_GhfRy1YDABEX7uz6E7tFJc7H3r0",
+  authDomain: "carta-bruta.firebaseapp.com",
+  databaseURL: "https://carta-bruta-default-rtdb.firebaseio.com",
+  projectId: "carta-bruta",
+  storageBucket: "carta-bruta.appspot.com",
+  messagingSenderId: "327732188032",
+  appId: "1:327732188032:web:dbb18875dbe8fa32d8a765",
+  measurementId: "G-T2BTZREQ2K"
 };
 
 // Initialize Firebase
