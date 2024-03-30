@@ -13,25 +13,25 @@
 }
 
 #Nav {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: black;
-    width: 100%;
-    height: 50px;
-    padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  background-color: black;
+  width: 100%;
+  height: 50px;
+  padding: 0;
 }
 
 .btnNav {
-    color: white;
-    list-style: none;
-    text-decoration: none;
-    font-size: larger;
-    font-weight: bold;
-    font-family: 'Roboto', sans-serif;
-    size-adjust: justify;
-    padding: 0;
+  color: white;
+  list-style: none;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  size-adjust: justify;
+  padding: 0;
 }
 
 .imagenGaleria {
@@ -81,6 +81,7 @@
   border: none;
   border-radius: 4px;
   overflow: hidden;
+  z-index: 2;
 }
 
 .language-dropdown button {
@@ -110,7 +111,7 @@
   color: black;
   padding: 5px 10px;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #btnSub {
@@ -120,7 +121,7 @@
   color: black;
   padding: 5px 10px;
   font-weight: bold;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 #filtroPrincipal {
@@ -134,16 +135,20 @@
   flex-direction: row;
   justify-content: space-around;
   flex-wrap: wrap;
-
 }
 
 .productContainer {
-  display: grid;
-  grid-template-columns: 20% 80%;
   align-items: center;
   border-bottom: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .datosMenu {
   align-items: center;
+}
+
+.cardMenu {
+  z-index: 1;
 }

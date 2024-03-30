@@ -1,59 +1,75 @@
-import React, { useState } from 'react'
-import Menu from './Menu';
+import React, { useState } from "react";
+import Menu from "./Menu";
 
 const Filtros = () => {
-    // Estado para el filtro principal
-    const [mainFilter, setMainFilter] = useState('bebidas');
+  // Estado para el filtro principal
+  const [mainFilter, setMainFilter] = useState("bebidas");
 
-    // Estado para el filtro secundario
-    const [subFilter, setSubFilter] = useState(null);
+  // Estado para el filtro secundario
+  const [subFilter, setSubFilter] = useState("TODOS");
 
-    const subFilters = {
-      bebidas: ['APERITIVOS', 'GINTONICS', 'OTROS CÓCTELES CLÁSICOS', 'OTROS CÓCTELES DE AUTOR', 'SIN ALCOHOL', 'CERVEZAS', 'LICORES Y DESTILADOS'],
-      vinos: ['TINTOS', 'BLANCOS', 'ROSADOS', 'ESPUMANTES'],
-      platos: ['TODOS', 'VEGGIE', 'SIN GLUTEN', 'SIN LACTOSA'],
-      postres: ['POSTRES', 'CAFETERÍA', 'DIGESTIVOS']
-    };
-  
-    const handleMainFilterChange = (filter) => {
-      setMainFilter(filter);
-      setSubFilter(null);
-    };
+  const subFilters = {
+    bebidas: [
+      "TODOS",
+      "APERITIVOS",
+      "GINTONICS",
+      "OTROS CÓCTELES DE AUTOR",
+      "OTROS CÓCTELES CLÁSICOS",
+      "SIN ALCOHOL",
+      "VERMUTS",
+      "CERVEZAS",
+      "LICORES Y DESTILADOS"
+    ],
+    vinos: ["TODOS", "TINTOS", "BLANCOS", "ROSADOS", "ESPUMANTES"],
+    platos: ["TODOS", "VEGGIE", "SIN GLUTEN", "SIN LACTOSA"],
+    postres: ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
+  };
 
-    const handleSubFilterChange = (filter) => {
-      setSubFilter(filter);
-    };
-  
-    return (
-      <div>
-        <div id='filtroPrincipal'>
-          {Object.keys(subFilters).map((filter) => (
-            <button
-              id='btnPrincipal'
-              key={filter}
-              onClick={() => handleMainFilterChange(filter)}
-              className={mainFilter === filter ? 'active' : ''}
-            >
-              {filter.toUpperCase()}
-            </button>
-          ))}
-        </div>
-        <div>
-          {mainFilter && subFilters[mainFilter] && (
-            <div id='filtroSub'>
-              {subFilters[mainFilter].map((subFilterOption) => (
-                <button id='btnSub'
-                key={subFilterOption}
-                onClick={() => handleSubFilterChange(subFilterOption)}
-                className={subFilter === subFilterOption ? 'active' : ''}
-                >{subFilterOption}</button>
-              ))}
-            </div>
-          )}
-        </div>
-        <Menu mainFilter={mainFilter} subFilter={subFilter}/>
+  const handleMainFilterChange = (filter) => {
+    setMainFilter(filter);
+    setSubFilter('TODOS');
+  };
+
+  const handleSubFilterChange = (filter) => {
+    setSubFilter(filter);
+  };
+
+  console.log(subFilter);
+
+  return (
+    <div>
+      <div id="filtroPrincipal">
+        {Object.keys(subFilters).map((filter) => (
+          <button
+            id="btnPrincipal"
+            key={filter}
+            onClick={() => handleMainFilterChange(filter)}
+            className={mainFilter === filter ? "active" : ""}
+          >
+            {filter.toUpperCase()}
+          </button>
+        ))}
       </div>
-    );
-}
+      <div>
+        {mainFilter && subFilters[mainFilter] && (
+          <div id="filtroSub">
+            <select
+              id="dropdownMenu"
+              value={subFilter}
+              onChange={(event) => handleSubFilterChange(event.target.value)}
+            >
+              {subFilters[mainFilter].map((subFilterOption) => (
+                <option key={subFilterOption} value={subFilterOption}>
+                  {subFilterOption}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+      </div>
+      <Menu mainFilter={mainFilter} subFilter={subFilter} />
+    </div>
+  );
+};
 
-export default Filtros
+export default Filtros;

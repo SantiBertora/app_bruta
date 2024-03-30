@@ -50,7 +50,7 @@ const Menu = ({ mainFilter, subFilter}) => {
     });
   }, []);
 
-  const menu = [];
+  let menu = [];
 
   if (mainFilter === 'platos') {
     menu.push(...platos);
@@ -63,10 +63,64 @@ const Menu = ({ mainFilter, subFilter}) => {
   }
 
   console.log(menu);
+  console.log(subFilter);
+
+  if (subFilter === 'APERITIVOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "aperitivo");
+  } else if (subFilter === 'GINTONICS') {
+    menu = menu.filter((producto) => producto.clasificacion === "gintonic");
+  } else if (subFilter === 'OTROS CÓCTELES CLÁSICOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "clasico");
+  } else if (subFilter === 'OTROS CÓCTELES DE AUTOR') {
+    menu = menu.filter((producto) => producto.clasificacion === "autor");
+  } else if (subFilter === 'SIN ALCOHOL') {
+    menu = menu.filter((producto) => producto.clasificacion === "sin alcohol");
+  } else if (subFilter === 'OTROS CÓCTELES DE AUTOR') {
+    menu = menu.filter((producto) => producto.clasificacion === "autor");
+  } else if (subFilter === 'VERMUTS') {
+    menu = menu.filter((producto) => producto.clasificacion === "vermouth");
+  } else if (subFilter === 'CERVEZAS') {
+    menu = menu.filter((producto) => producto.clasificacion === "cerveza");
+  } else if (subFilter === 'LICORES Y DESTILADOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "destilado");
+  } else if (subFilter === 'TINTOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "tinto");
+  } else if (subFilter === 'BLANCOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "blanco");
+  } else if (subFilter === 'ROSADOS') {
+    menu = menu.filter((producto) => producto.clasificacion === "rosado");
+  } else if (subFilter === 'ESPUMANTES') {
+    menu = menu.filter((producto) => producto.clasificacion === "espumante");
+  } else if (subFilter === 'VEGGIE') {
+    menu = menu.filter((producto) => producto.veggie === true);
+  } else if (subFilter === 'SIN GLUTEN') {
+    menu = menu.filter((producto) => producto.sinGluten === true);
+  } else if (subFilter === 'SIN LACTOSA') {
+    menu = menu.filter((producto) => producto.sinLactosa === true);
+  } else if (subFilter === 'POSTRES') {
+    menu = menu.filter((producto) => producto.clasificacion === "postre");
+  } else if (subFilter === 'CAFETERÍA') {
+    menu = menu.filter((producto) => producto.clasificacion === "cafe");
+  } else if (subFilter === 'DIGESTIVOS') {
+    menu = menu.filter((producto) => producto.veggie === "digestivo");
+  };
+
+  
 
   return (
     <div> 
-      
+       {menu.map((producto) => (
+      <Card maxW='sm' key={producto.nombre} className='cardMenu'>
+    <CardBody className='productContainer'>
+      <Stack className='datosMenu'>
+        <Heading size='md'>{producto.nombre}</Heading>
+      </Stack>
+      <Text fontSize='2xl'>
+        ${producto.precio}
+      </Text>
+    </CardBody>
+  </Card>
+      ))}
     </div> 
   )
 }
