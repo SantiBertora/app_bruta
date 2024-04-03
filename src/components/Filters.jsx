@@ -16,6 +16,7 @@ const Filters = () => {
       "OTHER CLASSIC COCKTAILS",
       "OTHER SIGNATURE COCKTAILS",
       "NO ALCOHOL",
+      "VERMOUTHS",
       "BEERS",
       "LIQUORS AND SPIRITS",
     ],

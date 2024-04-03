@@ -21,7 +21,7 @@ const Filtros = () => {
       "LICORES Y DESTILADOS"
     ],
     vinos: ["TODOS", "TINTOS", "BLANCOS", "ROSADOS", "ESPUMANTES"],
-    platos: ["TODOS", "VEGGIE", "SIN GLUTEN", "SIN LACTOSA"],
+    menú: ["TODOS", "VEGGIE", "SIN GLUTEN", "SIN LACTOSA"],
     postres: ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
   };
 

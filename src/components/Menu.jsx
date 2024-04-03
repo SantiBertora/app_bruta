@@ -52,7 +52,7 @@ const Menu = ({ mainFilter, subFilter}) => {
 
   let menu = [];
 
-  if (mainFilter === 'platos') {
+  if (mainFilter === 'menú') {
     menu.push(...platos);
   } else if (mainFilter === 'bebidas') {
     menu.push(...bebidas);
@@ -75,8 +75,6 @@ const Menu = ({ mainFilter, subFilter}) => {
     menu = menu.filter((producto) => producto.clasificacion === "autor");
   } else if (subFilter === 'SIN ALCOHOL') {
     menu = menu.filter((producto) => producto.clasificacion === "sin alcohol");
-  } else if (subFilter === 'OTROS CÓCTELES DE AUTOR') {
-    menu = menu.filter((producto) => producto.clasificacion === "autor");
   } else if (subFilter === 'VERMUTS') {
     menu = menu.filter((producto) => producto.clasificacion === "vermouth");
   } else if (subFilter === 'CERVEZAS') {
@@ -115,6 +113,7 @@ const Menu = ({ mainFilter, subFilter}) => {
       <Stack className='datosMenu'>
         <Heading size='md'>{producto.nombre}</Heading>
       </Stack>
+      
       <Text fontSize='2xl'>
         ${producto.precio}
       </Text>
