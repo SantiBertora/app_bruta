@@ -2,6 +2,10 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import { Card, CardBody, Image, Stack, Heading, Text } from '@chakra-ui/react';
 import { collection, getDocs, getFirestore } from 'firebase/firestore';
+import Bebidas from './Bebidas';
+import Vinos from './Vinos';
+import Platos from './Platos';
+import Postres from './Postres';
 
 const Menu = ({ mainFilter, subFilter}) => {
 
@@ -105,23 +109,33 @@ const Menu = ({ mainFilter, subFilter}) => {
 
   
 
-  return (
-    <div> 
-       {menu.map((producto) => (
-      <Card maxW='sm' key={producto.nombre} className='cardMenu'>
-    <CardBody className='productContainer'>
-      <Stack className='datosMenu'>
-        <Heading size='md'>{producto.nombre}</Heading>
-      </Stack>
-      
-      <Text fontSize='2xl'>
-        ${producto.precio}
-      </Text>
-    </CardBody>
-  </Card>
-      ))}
-    </div> 
-  )
-}
+ 
+       if (mainFilter === 'bebidas') {
+        return (
+          <div> 
+            <Bebidas menu={menu} subFilter={subFilter} />
+          </div>
+        ) 
+      } else if (mainFilter === 'vinos') {
+        return (
+          <div> 
+            <Vinos menu={menu} />
+          </div>
+        ) 
+      } else if (mainFilter === 'menú') {
+        return (
+          <div> 
+            <Platos menu={menu} />
+          </div>
+        ) 
+      } else if (mainFilter === 'postres') {
+        return (
+          <div> 
+            <Postres menu={menu} />
+          </div>
+        ) 
+      }
+    }
+
 
 export default Menu

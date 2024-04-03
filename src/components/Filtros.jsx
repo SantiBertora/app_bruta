@@ -20,7 +20,7 @@ const Filtros = () => {
       "CERVEZAS",
       "LICORES Y DESTILADOS"
     ],
-    vinos: ["TODOS", "TINTOS", "BLANCOS", "ROSADOS", "ESPUMANTES"],
+    vinos: ["TODOS", "TINTOS", "BLANCOS Y ROSÉ", "ESPUMANTES"],
     menú: ["TODOS", "VEGGIE", "SIN GLUTEN", "SIN LACTOSA"],
     postres: ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
   };

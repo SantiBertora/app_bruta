@@ -20,7 +20,7 @@ const Filters = () => {
       "BEERS",
       "LIQUORS AND SPIRITS",
     ],
-    wines: ["ALL", "RED", "WHITE", "PINK", "SPARKLING"],
+    wines: ["ALL", "RED", "WHITE & ROSE", "SPARKLING"],
     courses: ["ALL", "VEGETARIANS", "NO GLUTEN", "NO LACTOSE"],
     desserts: ["ALL", "DESSERTS", "COFFEE", "DIGESTIVE"],
   };
