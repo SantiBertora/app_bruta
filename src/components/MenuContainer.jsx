@@ -1,10 +1,15 @@
 import React from 'react'
 import Filtros from './Filtros';
 import Filters from './Filters';
+import { useLanguage } from '../context/LanguageContext';
 
-const MenuContainer = (idioma) => {
+const MenuContainer = () => {
 
-  if (idioma.idioma === 'es') {
+  const { selectedLanguage } = useLanguage();
+
+  console.log(selectedLanguage);
+
+  if (selectedLanguage === 'es') {
     return (
       <Filtros/>
     )

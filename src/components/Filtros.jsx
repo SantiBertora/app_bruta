@@ -20,7 +20,7 @@ const Filtros = () => {
       "CERVEZAS",
       "LICORES Y DESTILADOS"
     ],
-    vinos: ["TODOS", "TINTOS", "BLANCOS Y ROSÉ", "ESPUMANTES"],
+    vinos: ["TODOS", "TINTOS","ROSADOS", "BLANCOS", "ESPUMANTES"],
     menú: ["TODOS", "VEGGIE", "SIN GLUTEN", "SIN LACTOSA"],
     postres: ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
   };
@@ -33,8 +33,6 @@ const Filtros = () => {
   const handleSubFilterChange = (filter) => {
     setSubFilter(filter);
   };
-
-  console.log(subFilter);
 
   return (
     <div>

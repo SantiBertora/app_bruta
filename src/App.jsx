@@ -1,9 +1,8 @@
 import Inicio from "./components/Inicio"
 import Navbar from "./components/Navbar"
-import Eventos from "./components/Eventos"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
-import Idioma from "./components/Idioma"
 import { ChakraProvider } from "@chakra-ui/react"
+import MenuContainer from "./components/MenuContainer"
 
 function App() {
 
@@ -13,8 +12,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route exact path="/" element={<Inicio />} />
-        <Route path="/menu" element={<Idioma />} />
-        <Route path="/eventos" element={<Eventos />} />
+        <Route path="/menu" element={<MenuContainer />} />
         <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </BrowserRouter>

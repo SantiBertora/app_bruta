@@ -1,9 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { useLanguage } from '../context/LanguageContext'; // Importamos nuestro hook personalizado
 import { useState } from 'react';
-import MenuContainer from './MenuContainer';
-
 
 const Idioma = () => {
+  const { selectedLanguage, setSelectedLanguage } = useLanguage();
 
   const languages = [
     { code: 'es', flag: 'https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/imagenes%20web%2Fes.png?alt=media&token=28292de1-9ac0-4e6a-b1fd-c8130b623828', name: 'Español' },
@@ -12,43 +12,37 @@ const Idioma = () => {
   ];
 
   // Estado para controlar si el dropdown está abierto o cerrado
-const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
-  // Estado para mantener el idioma seleccionado
-const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  // Función para manejar el cambio de idioma seleccionado
+  const handleLanguageChange = (language) => {
+    setSelectedLanguage(language.code);
+    setDropdownOpen(false); // Cerramos el dropdown después de seleccionar un idioma
+  };
 
-// Función para manejar el cambio de idioma seleccionado
-const handleLanguageChange = (language) => {
-setSelectedLanguage(language);
-setDropdownOpen(false);
-// Aquí puedes realizar alguna acción con el idioma seleccionado, como cambiar el contenido de la app según el idioma, etc.
-};
-
-// Función para alternar el estado del dropdown (abierto/cerrado)
-const toggleDropdown = () => {
-setDropdownOpen((prevOpen) => !prevOpen);
-};
+  // Función para alternar el estado del dropdown (abierto/cerrado)
+  const toggleDropdown = () => {
+    setDropdownOpen((prevOpen) => !prevOpen);
+  };
 
   return (
     <>
-    <div className="language-selector-container">
-      <button className="language-selector-button" onClick={toggleDropdown}>
-        <img src={selectedLanguage.flag} alt={selectedLanguage.name} />
-      </button>
-      {isDropdownOpen && (
-        <div className="language-dropdown">
-          {languages.map((language) => (
-            <button key={language.code} onClick={() => handleLanguageChange(language)}>
-              <img src={language.flag} alt={language.name} />
-            </button>
-          ))}
-        </div>
-      )}
-    </div>
-    <MenuContainer idioma={selectedLanguage.code}/>
+      <div className="language-selector-container">
+        <button className="language-selector-button" onClick={toggleDropdown}>
+          <img src={languages.find(lang => lang.code === selectedLanguage).flag} alt={languages.find(lang => lang.code === selectedLanguage).name} />
+        </button>
+        {isDropdownOpen && ( // Mostramos el dropdown solo si isDropdownOpen es verdadero
+          <div className="language-dropdown">
+            {languages.map((language) => (
+              <button key={language.code} onClick={() => handleLanguageChange(language)}>
+                <img src={language.flag} alt={language.name} />
+              </button>
+            ))}
+          </div>
+        )}
+      </div>
     </>
   );
 };
 
-
-export default Idioma
+export default Idioma;

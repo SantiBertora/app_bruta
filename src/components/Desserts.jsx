@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from 'react';
 import { Card, CardBody, Stack, Heading, Text } from '@chakra-ui/react';
 
-const Postres = ( {menu, subFilter} ) => {
+const Desserts = ( {menu, subFilter} ) => {
   const postres = menu.filter((producto) => producto.clasificacion === 'postre');
   const cafes = menu.filter((producto) => producto.clasificacion === 'cafe');
   const digestivos = menu.filter((producto) => producto.clasificacion === 'digestivo');
@@ -15,15 +15,15 @@ const Postres = ( {menu, subFilter} ) => {
   
         // Calcula la posición de scroll basada en el valor de subFilter
         switch (subFilter) {
-          case 'POSTRES':
+          case 'DESSERTS':
             // Calcula la posición para la opción 1
             posicionScroll = document.getElementById('postres').offsetTop;
             break;
-          case 'CAFETERÍA':
+          case 'COFFEE':
             // Calcula la posición para la opción 2
             posicionScroll = document.getElementById('cafes').offsetTop;
             break;
-          case 'DIGESTIVOS':
+          case 'DIGESTIVE':
             // Calcula la posición para la opción 3
             posicionScroll = document.getElementById('digestivos').offsetTop;
             break;
@@ -42,7 +42,7 @@ const Postres = ( {menu, subFilter} ) => {
 
   return (
     <div>
-      <h2 id='postres'>POSTRES</h2>
+      <h2 id='postres'>DESSERTS</h2>
       {postres
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -55,7 +55,7 @@ const Postres = ( {menu, subFilter} ) => {
             </CardBody>
           </Card>
         ))}
-      <h2 id='cafes'>CAFETERÍA</h2>
+      <h2 id='cafes'>COFFEE</h2>
       {cafes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -68,7 +68,7 @@ const Postres = ( {menu, subFilter} ) => {
             </CardBody>
           </Card>
         ))}
-      <h2 id='digestivos'>DIGESTIVOS</h2>
+      <h2 id='digestivos'>DIGESTIVES</h2>
       {digestivos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -85,4 +85,4 @@ const Postres = ( {menu, subFilter} ) => {
   )
 }
 
-export default Postres
+export default Desserts

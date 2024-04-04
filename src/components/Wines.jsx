@@ -2,8 +2,9 @@ import React from "react";
 import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
 import { useEffect } from "react";
 
-const Vinos = ({ menu, subFilter }) => {
-  const vinosTinto = menu.filter(
+const Wines = ({ menu, subFilter }) => {
+
+const vinosTinto = menu.filter(
     (producto) => producto.clasificacion === "tinto"
   );
   const vinosByR = menu.filter(
@@ -74,19 +75,19 @@ const Vinos = ({ menu, subFilter }) => {
 
       // Calcula la posición de scroll basada en el valor de subFilter
       switch (subFilter) {
-        case 'TINTOS':
+        case 'RED':
           // Calcula la posición para la opción 1
           posicionScroll = document.getElementById('tintos').offsetTop;
           break;
-        case 'ROSADOS':
+        case 'ROSE':
           // Calcula la posición para la opción 2
           posicionScroll = document.getElementById('rosados').offsetTop;
           break;
-        case 'BLANCOS':
+        case 'WHITE':
           // Calcula la posición para la opción 3
           posicionScroll = document.getElementById('blancos').offsetTop;
           break;
-        case 'ESPUMANTES':
+        case 'SPARKLING':
           // Calcula la posición para la opción 4
           posicionScroll = document.getElementById('espumantes').offsetTop;
           break;
@@ -171,7 +172,7 @@ const Vinos = ({ menu, subFilter }) => {
             </CardBody>
           </Card>
         ))}
-      <h3>Ensamblajes</h3>
+      <h3>Blends</h3>
       {ensamblajes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -184,7 +185,7 @@ const Vinos = ({ menu, subFilter }) => {
             </CardBody>
           </Card>
         ))}
-      <h3>Otras Cepas</h3>
+      <h3>Other Strains</h3>
       {otrasCepas
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -197,7 +198,7 @@ const Vinos = ({ menu, subFilter }) => {
             </CardBody>
           </Card>
         ))}
-      <h2 id="rosados">ROSADOS</h2>
+      <h2 id="rosados">ROSE</h2>
           {rosados
           .filter((producto) => producto.activo === true)
           .map((producto) => (
@@ -210,7 +211,7 @@ const Vinos = ({ menu, subFilter }) => {
               </CardBody>
             </Card>
           ))}
-      <h2 id="blancos">BLANCOS</h2>
+      <h2 id="blancos">WHITE</h2>
       <h3>Torrontes</h3>
       {torrontes
         .filter((producto) => producto.activo === true)
@@ -263,7 +264,7 @@ const Vinos = ({ menu, subFilter }) => {
             </CardBody>
           </Card>
         ))}
-      <h3>Otros</h3>
+      <h3>Others</h3>
       {otrosBlancos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -276,7 +277,7 @@ const Vinos = ({ menu, subFilter }) => {
             </CardBody>
           </Card>
         ))}
-      <h2 id="espumantes">ESPUMANTES</h2>
+      <h2 id="espumantes">SPARKLING</h2>
       {espumantes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -291,6 +292,6 @@ const Vinos = ({ menu, subFilter }) => {
         ))}
     </div>
   );
-};
+}
 
-export default Vinos;
+export default Wines
