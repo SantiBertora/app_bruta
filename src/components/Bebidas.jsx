@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Bebidas = ({ menu, subFilter }) => {
     
@@ -29,6 +29,20 @@ const Bebidas = ({ menu, subFilter }) => {
     (producto) => producto.clasificacion === "destilado"
   );
 
+// Obtener la altura del componente "filtros"
+
+const [alturaFiltros, setAlturaFiltros] = useState(null);
+
+useEffect(() => {
+  const filtrosElement = document.getElementById("filtros");
+  if (filtrosElement) {
+    const altura = filtrosElement.offsetHeight;
+    setAlturaFiltros(altura);
+  }
+}, []);
+
+
+
    // Función para manejar cambios en subFilter
    useEffect(() => {
     // Función para calcular la posición de scroll basada en la opción seleccionada
@@ -39,35 +53,35 @@ const Bebidas = ({ menu, subFilter }) => {
       switch (subFilter) {
         case 'APERITIVOS':
           // Calcula la posición para la opción 1
-          posicionScroll = document.getElementById('aperitivos').offsetTop;
+          posicionScroll = document.getElementById('aperitivos').offsetTop - alturaFiltros;
           break;
         case 'GINTONICS':
           // Calcula la posición para la opción 2
-          posicionScroll = document.getElementById('gintonics').offsetTop;
+          posicionScroll = document.getElementById('gintonics').offsetTop - alturaFiltros;
           break;
         case 'OTROS CÓCTELES DE AUTOR':
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById('autor').offsetTop;
+          posicionScroll = document.getElementById('autor').offsetTop - alturaFiltros;
           break;
         case 'OTROS CÓCTELES CLÁSICOS':
           // Calcula la posición para la opción 4
-          posicionScroll = document.getElementById('clasicos').offsetTop;
+          posicionScroll = document.getElementById('clasicos').offsetTop - alturaFiltros;
           break;
         case 'SIN ALCOHOL':
           // Calcula la posición para la opción 5
-          posicionScroll = document.getElementById('sinAlcohol').offsetTop;
+          posicionScroll = document.getElementById('sinAlcohol').offsetTop - alturaFiltros;
           break;
         case 'VERMUTS':
           // Calcula la posición para la opción 6
-          posicionScroll = document.getElementById('vermuts').offsetTop;
+          posicionScroll = document.getElementById('vermuts').offsetTop - alturaFiltros;
           break;
         case 'CERVEZAS':
           // Calcula la posición para la opción 7
-          posicionScroll = document.getElementById('cervezas').offsetTop;
+          posicionScroll = document.getElementById('cervezas').offsetTop - alturaFiltros;
           break;
         case 'LICORES Y DESTILADOS':
           // Calcula la posición para la opción 8
-          posicionScroll = document.getElementById('destilados').offsetTop;
+          posicionScroll = document.getElementById('destilados').offsetTop - alturaFiltros;
           break;
         // Agrega más casos según tus necesidades
         default:
@@ -89,7 +103,7 @@ const Bebidas = ({ menu, subFilter }) => {
 
   return (
     <div>
-      <h2 id="aperitivos">NUESTROS APERITIVOS</h2>
+      <h2 id="aperitivos" className="titulo">NUESTROS APERITIVOS</h2>
       {productosAperitivo.filter((producto) => producto.activo === true)
       .map((producto) => (
         <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -101,7 +115,7 @@ const Bebidas = ({ menu, subFilter }) => {
           </CardBody>
         </Card>
       ))}
-      <h2 id="gintonics">NUESTROS GINTONICS</h2>
+      <h2 id="gintonics" className="titulo">NUESTROS GINTONICS</h2>
       {productosGintonic.filter((producto) => producto.activo === true)
       .map((producto) => (
         <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -113,7 +127,7 @@ const Bebidas = ({ menu, subFilter }) => {
           </CardBody>
         </Card>
       ))}
-        <h2 id="autor">NUESTROS CÓCTELES DE AUTOR</h2>
+        <h2 id="autor" className="titulo">NUESTROS CÓCTELES DE AUTOR</h2>
         {productosAutor.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -125,7 +139,7 @@ const Bebidas = ({ menu, subFilter }) => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="clasicos">NUESTROS CÓCTELES CLÁSICOS</h2>
+        <h2 id="clasicos" className="titulo">NUESTROS CÓCTELES CLÁSICOS</h2>
         {productosClasico.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -137,7 +151,7 @@ const Bebidas = ({ menu, subFilter }) => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="sinAlcohol">SIN ALCOHOL</h2>
+        <h2 id="sinAlcohol" className="titulo">SIN ALCOHOL</h2>
         {productosSinAlcohol.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -149,7 +163,7 @@ const Bebidas = ({ menu, subFilter }) => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="vermuts">VERMUTS</h2>
+        <h2 id="vermuts" className="titulo">VERMUTS</h2>
         {productosVermouth.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -161,7 +175,7 @@ const Bebidas = ({ menu, subFilter }) => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="cervezas">CERVEZAS</h2>
+        <h2 id="cervezas" className="titulo">CERVEZAS</h2>
         {productosCerveza.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">
@@ -173,7 +187,7 @@ const Bebidas = ({ menu, subFilter }) => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="destilados">LICORES Y DESTILADOS</h2>
+        <h2 id="destilados" className="titulo">LICORES Y DESTILADOS</h2>
         {productosDestilado.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card maxW="sm" key={producto.nombre} className="cardMenu">

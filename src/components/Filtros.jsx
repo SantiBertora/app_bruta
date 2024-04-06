@@ -34,8 +34,13 @@ const Filtros = () => {
     setSubFilter(filter);
   };
 
+  const filtros = document.getElementById('filtroPrincipal');
+  console.log(filtros)
+
+
   return (
     <div>
+      <div id="filtros">
       <div id="filtroPrincipal">
         {Object.keys(subFilters).map((filter) => (
           <button
@@ -64,6 +69,7 @@ const Filtros = () => {
             </select>
           </div>
         )}
+      </div>
       </div>
       <Menu mainFilter={mainFilter} subFilter={subFilter} />
     </div>

@@ -11,7 +11,7 @@ const MenuContainer = () => {
 
   if (selectedLanguage === 'es') {
     return (
-      <Filtros/>
+        <Filtros/>
     )
   } else {
     return (

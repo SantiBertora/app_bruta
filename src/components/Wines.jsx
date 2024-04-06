@@ -1,6 +1,6 @@
 import React from "react";
 import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const Wines = ({ menu, subFilter }) => {
 
@@ -67,6 +67,19 @@ const vinosTinto = menu.filter(
     (producto) => producto.cepa === "espumante"
   );
 
+  // Obtener la altura del componente "filtros"
+
+const [alturaFiltros, setAlturaFiltros] = useState(null);
+
+useEffect(() => {
+  const filtrosElement = document.getElementById("filtros");
+  if (filtrosElement) {
+    const altura = filtrosElement.offsetHeight;
+    setAlturaFiltros(altura);
+  }
+}, []);
+
+
    // Función para manejar cambios en subFilter
    useEffect(() => {
     // Función para calcular la posición de scroll basada en la opción seleccionada
@@ -77,19 +90,19 @@ const vinosTinto = menu.filter(
       switch (subFilter) {
         case 'RED':
           // Calcula la posición para la opción 1
-          posicionScroll = document.getElementById('tintos').offsetTop;
+          posicionScroll = document.getElementById('tintos').offsetTop - alturaFiltros;
           break;
         case 'ROSE':
           // Calcula la posición para la opción 2
-          posicionScroll = document.getElementById('rosados').offsetTop;
+          posicionScroll = document.getElementById('rosados').offsetTop - alturaFiltros;
           break;
         case 'WHITE':
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById('blancos').offsetTop;
+          posicionScroll = document.getElementById('blancos').offsetTop - alturaFiltros;
           break;
         case 'SPARKLING':
           // Calcula la posición para la opción 4
-          posicionScroll = document.getElementById('espumantes').offsetTop;
+          posicionScroll = document.getElementById('espumantes').offsetTop - alturaFiltros;
           break;
       }
 
@@ -106,8 +119,8 @@ const vinosTinto = menu.filter(
 
   return (
     <div>
-      <h2 id="tintos" >TINTOS</h2>
-      <h3>Cabernet Sauvignon</h3>
+      <h2 id="tintos" className="titulo">RED</h2>
+      <h3 className="subTitulo">Cabernet Sauvignon</h3>
       {cabSauv
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -120,7 +133,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Tannat</h3>
+      <h3 className="subTitulo">Tannat</h3>
       {tannat
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -133,7 +146,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Pinot Noir</h3>
+      <h3 className="subTitulo">Pinot Noir</h3>
       {pinotNoir
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -146,7 +159,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Cabernet Franc</h3>
+      <h3 className="subTitulo">Cabernet Franc</h3>
       {cabFranc
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -159,7 +172,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Malbec</h3>
+      <h3 className="subTitulo">Malbec</h3>
       {malbec
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -172,7 +185,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Blends</h3>
+      <h3 className="subTitulo">Blends</h3>
       {ensamblajes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -185,7 +198,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Other Strains</h3>
+      <h3 className="subTitulo">Other Strains</h3>
       {otrasCepas
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -198,7 +211,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h2 id="rosados">ROSE</h2>
+      <h2 id="rosados" className="titulo">ROSE</h2>
           {rosados
           .filter((producto) => producto.activo === true)
           .map((producto) => (
@@ -211,8 +224,8 @@ const vinosTinto = menu.filter(
               </CardBody>
             </Card>
           ))}
-      <h2 id="blancos">WHITE</h2>
-      <h3>Torrontes</h3>
+      <h2 id="blancos" className="titulo">WHITE</h2>
+      <h3 className="subTitulo">Torrontes</h3>
       {torrontes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -225,7 +238,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Albariño</h3>
+      <h3 className="subTitulo">Albariño</h3>
       {albarino
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -238,7 +251,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Sauvignon Blanc</h3>
+      <h3 className="subTitulo">Sauvignon Blanc</h3>
       {sauvignonBlanc
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -251,7 +264,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Chardonnay</h3>
+      <h3 className="subTitulo">Chardonnay</h3>
       {chardonnay
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -264,7 +277,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h3>Others</h3>
+      <h3 className="subTitulo">Others</h3>
       {otrosBlancos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -277,7 +290,7 @@ const vinosTinto = menu.filter(
             </CardBody>
           </Card>
         ))}
-      <h2 id="espumantes">SPARKLING</h2>
+      <h2 id="espumantes" className="titulo">SPARKLING</h2>
       {espumantes
         .filter((producto) => producto.activo === true)
         .map((producto) => (

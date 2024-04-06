@@ -36,6 +36,7 @@ const Filters = () => {
 
   return (
     <div>
+      <div id="filtros">
       <div id="filtroPrincipal">
         {Object.keys(subFilters).map((filter) => (
           <button
@@ -64,6 +65,7 @@ const Filters = () => {
             </select>
           </div>
         )}
+      </div>
       </div>
       <EnglishMenu mainFilter={mainFilter} subFilter={subFilter} />
     </div>

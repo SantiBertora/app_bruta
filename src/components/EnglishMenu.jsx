@@ -16,7 +16,7 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
     useEffect(() => {
       const db = getFirestore();
   
-      const coursesCollection = collection(db, 'courses');
+      const coursesCollection = collection(db, 'platos');
     getDocs(coursesCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data());
       setCourses(docs);
@@ -37,7 +37,7 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
   useEffect(() => {
     const db = getFirestore();
 
-    const dessertsCollection = collection(db, 'desserts');
+    const dessertsCollection = collection(db, 'postres');
     getDocs(dessertsCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data());
       setDesserts(docs);
@@ -46,7 +46,7 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
 
   useEffect(() => {
     const db = getFirestore();
-    const winesCollection = collection(db, 'wines');
+    const winesCollection = collection(db, 'vinos');
     getDocs(winesCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data());
       setWines(docs);
