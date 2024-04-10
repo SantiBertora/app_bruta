@@ -27,7 +27,6 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
     const db = getFirestore();
 
     const drinksCollection = collection(db, 'bebidas');
-    console.log(drinksCollection)
     getDocs(drinksCollection).then((snapshot) => {
       const docs = snapshot.docs.map((doc) => doc.data());
       setDrinks(docs);

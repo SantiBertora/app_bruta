@@ -65,7 +65,7 @@ const Courses = ({ menu, subFilter }) => {
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>

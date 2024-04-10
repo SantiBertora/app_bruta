@@ -105,7 +105,7 @@ useEffect(() => {
       <h2 id="aperitivos" className="titulo">APERITIVES</h2>
       {productosAperitivo.filter((producto) => producto.activo === true)
       .map((producto) => (
-        <Card maxW="sm" key={producto.nombre} className="cardMenu">
+        <Card key={producto.nombre} className="cardMenu">
           <CardBody className="productContainer">
             <Stack className="datosMenu">
               <Heading size="md">{producto.nombre}</Heading>
@@ -117,7 +117,7 @@ useEffect(() => {
       <h2 id="gintonics" className="titulo">GIN&TONICS</h2>
       {productosGintonic.filter((producto) => producto.activo === true)
       .map((producto) => (
-        <Card maxW="sm" key={producto.nombre} className="cardMenu">
+        <Card key={producto.nombre} className="cardMenu">
           <CardBody className="productContainer">
             <Stack className="datosMenu">
               <Heading size="md">{producto.nombre}</Heading>
@@ -129,7 +129,7 @@ useEffect(() => {
         <h2 id="autor" className="titulo">OTHER SIGNATURE COCKTAILS</h2>
         {productosAutor.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -141,7 +141,7 @@ useEffect(() => {
         <h2 id="clasicos" className="titulo">OTHER CLASSIC COCKTAILS</h2>
         {productosClasico.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -153,7 +153,7 @@ useEffect(() => {
         <h2 id="sinAlcohol" className="titulo">NO ALCOHOL</h2>
         {productosSinAlcohol.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -165,7 +165,7 @@ useEffect(() => {
         <h2 id="vermuts" className="titulo">VERMOUTHS</h2>
         {productosVermouth.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -177,7 +177,7 @@ useEffect(() => {
         <h2 id="cervezas" className="titulo">BEERS</h2>
         {productosCerveza.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -189,7 +189,7 @@ useEffect(() => {
         <h2 id="destilados" className="titulo">LIQUORS AND SPIRIT</h2>
         {productosDestilado.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
                 <CardBody className="productContainer">
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>

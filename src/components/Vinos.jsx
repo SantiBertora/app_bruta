@@ -123,7 +123,7 @@ useEffect(() => {
       {cabSauv
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -136,7 +136,7 @@ useEffect(() => {
       {tannat
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -149,7 +149,7 @@ useEffect(() => {
       {pinotNoir
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -162,7 +162,7 @@ useEffect(() => {
       {cabFranc
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -175,7 +175,7 @@ useEffect(() => {
       {malbec
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -188,7 +188,7 @@ useEffect(() => {
       {ensamblajes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -201,7 +201,7 @@ useEffect(() => {
       {otrasCepas
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -214,7 +214,7 @@ useEffect(() => {
           {rosados
           .filter((producto) => producto.activo === true)
           .map((producto) => (
-            <Card maxW="sm" key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu">
               <CardBody className="productContainer">
                 <Stack className="datosMenu">
                   <Heading size="md">{producto.nombre}</Heading>
@@ -228,7 +228,7 @@ useEffect(() => {
       {torrontes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -241,7 +241,7 @@ useEffect(() => {
       {albarino
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -254,7 +254,7 @@ useEffect(() => {
       {sauvignonBlanc
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -267,7 +267,7 @@ useEffect(() => {
       {chardonnay
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -280,7 +280,7 @@ useEffect(() => {
       {otrosBlancos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -293,7 +293,7 @@ useEffect(() => {
       {espumantes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>

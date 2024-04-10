@@ -35,8 +35,6 @@ const Filtros = () => {
   };
 
   const filtros = document.getElementById('filtroPrincipal');
-  console.log(filtros)
-
 
   return (
     <div>

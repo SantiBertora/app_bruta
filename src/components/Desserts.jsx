@@ -41,7 +41,7 @@ useEffect(() => {
           break;
         case "DIGESTIVE":
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById("digestivos").offsetTop - alturaFiltros;
+          posicionScroll = document.getElementById("digestivos").offsetTop - alt;
           break;
       }
 
@@ -78,7 +78,7 @@ useEffect(() => {
       {postres
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -118,7 +118,7 @@ useEffect(() => {
       {cafes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -131,7 +131,7 @@ useEffect(() => {
       {digestivos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>

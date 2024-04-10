@@ -7,8 +7,6 @@ const MenuContainer = () => {
 
   const { selectedLanguage } = useLanguage();
 
-  console.log(selectedLanguage);
-
   if (selectedLanguage === 'es') {
     return (
         <Filtros/>

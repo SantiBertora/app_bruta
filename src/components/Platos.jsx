@@ -1,7 +1,8 @@
-import React from "react";
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
+import React from "react";
 
 const Platos = ({ menu, subFilter }) => {
+
   if (subFilter === "VEGGIE") {
     menu = menu.filter(
       (producto) => producto.veggie === true || producto.opcionVeggie === true
@@ -61,11 +62,14 @@ const Platos = ({ menu, subFilter }) => {
             alt="Picante"
           />
         </div>
+        <div className="rowLeyenda">
+          Cubierto = $130
+        </div>
       </div>
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card maxW="sm" key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
