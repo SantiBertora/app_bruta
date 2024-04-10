@@ -1,5 +1,6 @@
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Platos = ({ menu, subFilter }) => {
 
@@ -69,7 +70,9 @@ const Platos = ({ menu, subFilter }) => {
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
+          
           <Card key={producto.nombre} className="cardMenu">
+            <Link to={`/producto/${producto.id}`}>
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -165,7 +168,9 @@ const Platos = ({ menu, subFilter }) => {
                 )}
               </div>
             </CardBody>
+            </Link>
           </Card>
+          
         ))}
     </div>
   );

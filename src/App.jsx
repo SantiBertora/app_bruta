@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
 import { ChakraProvider } from "@chakra-ui/react"
 import MenuContainer from "./components/MenuContainer"
+import PlatoContainer from "./components/PlatoContainer"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route exact path="/" element={<Inicio />} />
         <Route path="/menu" element={<MenuContainer />} />
+        <Route exact path='/producto/:id' element={ <PlatoContainer/> }/>
         <Route path="*" element={<h1>404: Not Found</h1>} />
       </Routes>
     </BrowserRouter>
