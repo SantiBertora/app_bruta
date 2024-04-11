@@ -54,7 +54,7 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
 
   let menu = [];
 
-  if (mainFilter === 'courses') {
+  if (mainFilter === 'menu') {
     menu.push(...courses);
   } else if (mainFilter === 'drinks') {
     menu.push(...drinks);
@@ -76,7 +76,7 @@ const EnglishMenu = ({ mainFilter, subFilter}) => {
         <Wines menu={menu} subFilter={subFilter} />
       </div>
     ) 
-  } else if (mainFilter === 'courses') {
+  } else if (mainFilter === 'menu') {
     return (
       <div> 
         <Courses menu={menu} subFilter={subFilter} />

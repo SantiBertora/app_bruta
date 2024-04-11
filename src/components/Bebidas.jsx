@@ -110,7 +110,7 @@ useEffect(() => {
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-                 <Text fontSize="2xl">${producto.precio}</Text>
+                 <Text className="precio">${producto.precio}</Text>
 
             </div>
             <Text>{producto.descripcion}</Text>
@@ -133,7 +133,7 @@ useEffect(() => {
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-                 <Text fontSize="2xl">${producto.precio}</Text>
+                 <Text className="precio">${producto.precio}</Text>
 
             </div>
             <Text>{producto.descripcion}</Text>
@@ -156,7 +156,7 @@ useEffect(() => {
                 <CardBody className="productContainer">
                 <div className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
-                     <Text fontSize="2xl">${producto.precio}</Text>
+                     <Text className="precio">${producto.precio}</Text>
 
                 </div>
                 <Text>{producto.descripcion}</Text>
@@ -179,7 +179,7 @@ useEffect(() => {
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-                 <Text fontSize="2xl">${producto.precio}</Text>
+                 <Text className="precio">${producto.precio}</Text>
 
             </div>
             <Text>{producto.descripcion}</Text>
@@ -202,7 +202,7 @@ useEffect(() => {
                 <CardBody className="productContainer">
                 <div className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
-                     <Text fontSize="2xl">${producto.precio}</Text>
+                     <Text className="precio">${producto.precio}</Text>
 
                 </div>
                 <Text>{producto.descripcion}</Text>
@@ -225,7 +225,7 @@ useEffect(() => {
               <CardBody className="productContainer">
               <div className="datosMenu">
                   <Heading size="md">{producto.nombre}</Heading>
-                   <Text fontSize="2xl">${producto.precio}</Text>
+                   <Text className="precio">${producto.precio}</Text>
 
               </div>
               <Text>{producto.descripcion}</Text> 
@@ -240,7 +240,7 @@ useEffect(() => {
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
                 </Stack>
-                <Text fontSize="2xl">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
                 </CardBody>
             </Card>
             ))}
@@ -252,7 +252,7 @@ useEffect(() => {
                 <Stack className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
                 </Stack>
-                <Text fontSize="2xl">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
                 </CardBody>
             </Card>
             ))}

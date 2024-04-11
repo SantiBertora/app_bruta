@@ -41,7 +41,7 @@ useEffect(() => {
           break;
         case "DIGESTIVE":
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById("digestivos").offsetTop - alt;
+          posicionScroll = document.getElementById("digestivos").offsetTop - alturaFiltros;
           break;
       }
 
@@ -66,14 +66,6 @@ useEffect(() => {
           alt="Sin Gluten"
         />
       </div>
-      <div className="rowLeyenda">
-        Lactose Free ={" "}
-        <img
-          className="imgCaracteristica"
-          src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-          alt="Sin Lactosa"
-        />
-      </div>
       <h2 id="postres" className="titulo">DESSERTS</h2>
       {postres
         .filter((producto) => producto.activo === true)
@@ -83,7 +75,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
               <Text>{producto.descripcion}</Text>
               <div className="caracteristicas">
                 {producto.sinGluten === true && (
@@ -123,7 +115,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
             </CardBody>
           </Card>
         ))}
@@ -136,7 +128,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
             </CardBody>
           </Card>
         ))}

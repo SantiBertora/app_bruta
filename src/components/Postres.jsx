@@ -67,14 +67,6 @@ useEffect(() => {
           alt="Sin Gluten"
         />
       </div>
-      <div className="rowLeyenda">
-        Sin Lactosa ={" "}
-        <img
-          className="imgCaracteristica"
-          src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-          alt="Sin Lactosa"
-        />
-      </div>
       <h2 id="postres" className="titulo">POSTRES</h2>
       {postres
         .filter((producto) => producto.activo === true)
@@ -84,7 +76,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
               <Text>{producto.descripcion}</Text>
               <div className="caracteristicas">
                 {producto.sinGluten === true && (
@@ -92,13 +84,6 @@ useEffect(() => {
                     className="imgCaracteristica"
                     src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
                     alt="sinGluten"
-                  />
-                )}
-                {producto.sinLactosa === true && (
-                  <img
-                    className="imgCaracteristica"
-                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-                    alt="sinLactosa"
                   />
                 )}
                 {producto.opcionSinGluten === true && (
@@ -124,7 +109,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
             </CardBody>
           </Card>
         ))}
@@ -137,7 +122,7 @@ useEffect(() => {
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
               </Stack>
-              <Text fontSize="2xl">${producto.precio}</Text>
+              <Text className="precio">${producto.precio}</Text>
             </CardBody>
           </Card>
         ))}

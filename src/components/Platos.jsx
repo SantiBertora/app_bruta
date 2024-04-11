@@ -24,14 +24,6 @@ const Platos = ({ menu, subFilter }) => {
     <div>
       <div className="leyenda">
         <div className="rowLeyenda">
-          Vegano ={" "}
-          <img
-            className="imgCaracteristica"
-            src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
-            alt="Vegano"
-          />
-        </div>
-        <div className="rowLeyenda">
           Veggie ={" "}
           <img
             className="imgCaracteristica"
@@ -45,14 +37,6 @@ const Platos = ({ menu, subFilter }) => {
             className="imgCaracteristica"
             src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
             alt="Sin Gluten"
-          />
-        </div>
-        <div className="rowLeyenda">
-          Sin Lactosa ={" "}
-          <img
-            className="imgCaracteristica"
-            src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-            alt="Sin Lactosa"
           />
         </div>
         <div className="rowLeyenda">
@@ -77,7 +61,7 @@ const Platos = ({ menu, subFilter }) => {
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
 
-                <Text fontSize="2xl">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
               </div>
               <Text>{producto.descripcion}</Text>
               <div className="caracteristicas">
@@ -88,25 +72,18 @@ const Platos = ({ menu, subFilter }) => {
                     alt="veggie"
                   />
                 )}
-                {producto.vegano === true && (
+                { /*producto.vegano === true && (
                   <img
                     className="imgCaracteristica"
                     src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
                     alt="vegano"
                   />
-                )}
+                ) */}
                 {producto.sinGluten === true && (
                   <img
                     className="imgCaracteristica"
                     src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
                     alt="sinGluten"
-                  />
-                )}
-                {producto.sinLactosa === true && (
-                  <img
-                    className="imgCaracteristica"
-                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-                    alt="sinLactosa"
                   />
                 )}
                 {producto.picante === true && (
@@ -126,7 +103,7 @@ const Platos = ({ menu, subFilter }) => {
                     />
                   </>
                 )}
-                {producto.opcionVegano === true && (
+                { /*producto.opcionVegano === true && (
                   <>
                     Con opcion{" "}
                     <img
@@ -135,7 +112,7 @@ const Platos = ({ menu, subFilter }) => {
                       alt="vegano"
                     />
                   </>
-                )}
+                )*/ }
                 {producto.opcionSinGluten === true && (
                   <>
                     Con opcion{" "}
@@ -143,16 +120,6 @@ const Platos = ({ menu, subFilter }) => {
                       className="imgCaracteristica"
                       src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
                       alt="sinGluten"
-                    />
-                  </>
-                )}
-                {producto.opcionSinLactosa === true && (
-                  <>
-                    Con opcion{" "}
-                    <img
-                      className="imgCaracteristica"
-                      src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-                      alt="sinLactosa"
                     />
                   </>
                 )}

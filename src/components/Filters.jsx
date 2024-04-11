@@ -21,7 +21,7 @@ const Filters = () => {
       "LIQUORS AND SPIRITS",
     ],
     wines: ["ALL", "RED", "ROSE" ,"WHITE", "SPARKLING"],
-    courses: ["ALL", "VEGETARIANS", "NO GLUTEN", "NO LACTOSE"],
+    menu: ["ALL", "VEGETARIANS", "NO GLUTEN"],
     desserts: ["ALL", "DESSERTS", "COFFEE", "DIGESTIVE"],
   };
 

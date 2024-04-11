@@ -22,14 +22,6 @@ const Courses = ({ menu, subFilter }) => {
     <div>
       <div className="leyenda">
         <div className="rowLeyenda">
-          Vegan ={" "}
-          <img
-            className="imgCaracteristica"
-            src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
-            alt="Vegano"
-          />
-        </div>
-        <div className="rowLeyenda">
           Vegetarian ={" "}
           <img
             className="imgCaracteristica"
@@ -46,20 +38,15 @@ const Courses = ({ menu, subFilter }) => {
           />
         </div>
         <div className="rowLeyenda">
-          Lactose Free ={" "}
-          <img
-            className="imgCaracteristica"
-            src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-            alt="Sin Lactosa"
-          />
-        </div>
-        <div className="rowLeyenda">
           Spicy ={" "}
           <img
             className="imgCaracteristica"
             src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
             alt="Picante"
           />
+        </div>
+        <div className="rowLeyenda">
+          Cubierto = $130
         </div>
       </div>
       {menu
@@ -70,7 +57,7 @@ const Courses = ({ menu, subFilter }) => {
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
 
-                <Text fontSize="2xl">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
               </div>
               <Text>{producto.descripcion}</Text>
               <div className="caracteristicas">
@@ -81,25 +68,18 @@ const Courses = ({ menu, subFilter }) => {
                     alt="veggie"
                   />
                 )}
-                {producto.vegano === true && (
+                { /*producto.vegano === true && (
                   <img
                     className="imgCaracteristica"
                     src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
                     alt="vegano"
                   />
-                )}
+                ) */}
                 {producto.sinGluten === true && (
                   <img
                     className="imgCaracteristica"
                     src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
                     alt="sinGluten"
-                  />
-                )}
-                {producto.sinLactosa === true && (
-                  <img
-                    className="imgCaracteristica"
-                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-                    alt="sinLactosa"
                   />
                 )}
                 {producto.picante === true && (
@@ -119,7 +99,7 @@ const Courses = ({ menu, subFilter }) => {
                     />
                   </>
                 )}
-                {producto.opcionVegano === true && (
+                { /*producto.opcionVegano === true && (
                   <>
                     Option{" "}
                     <img
@@ -128,7 +108,7 @@ const Courses = ({ menu, subFilter }) => {
                       alt="vegano"
                     />
                   </>
-                )}
+                )*/ }
                 {producto.opcionSinGluten === true && (
                   <>
                     Option{" "}
@@ -136,16 +116,6 @@ const Courses = ({ menu, subFilter }) => {
                       className="imgCaracteristica"
                       src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20gluten.png?alt=media&token=4e91dbff-cfc6-4db4-a34f-ca72f2218a86"
                       alt="sinGluten"
-                    />
-                  </>
-                )}
-                {producto.opcionSinLactosa === true && (
-                  <>
-                    Option{" "}
-                    <img
-                      className="imgCaracteristica"
-                      src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/sin%20lactosa.png?alt=media&token=b25c427c-10bc-4d11-b395-e464a4ca9c53"
-                      alt="sinLactosa"
                     />
                   </>
                 )}
