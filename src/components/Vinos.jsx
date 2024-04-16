@@ -14,6 +14,10 @@ const Vinos = ({ menu, subFilter }) => {
     (producto) => producto.clasificacion === "espumante"
   );
 
+  const vinosCopa = menu.filter(
+    (producto) => producto.clasificacion === "copa"
+  );
+
   const cabSauv = vinosTinto.filter(
     (producto) => producto.cepa === "cabernet sauvignon"
   );
@@ -102,6 +106,10 @@ useEffect(() => {
         case 'ESPUMANTES':
           // Calcula la posición para la opción 4
           posicionScroll = document.getElementById('espumantes').offsetTop - alturaFiltros;
+          break;
+        case 'VINOS POR COPA':
+          // Calcula la posición para la opción 5
+          posicionScroll = document.getElementById('copa').offsetTop - alturaFiltros;
           break;
       }
 
@@ -291,6 +299,19 @@ useEffect(() => {
         ))}
       <h2 id="espumantes" className="titulo">ESPUMANTES</h2>
       {espumantes
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card key={producto.nombre} className="cardMenu">
+            <CardBody className="productContainer">
+              <Stack className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+              </Stack>
+              <Text className="precio">${producto.precio}</Text>
+            </CardBody>
+          </Card>
+        ))}
+        <h2 id="copa" className="titulo">VINOS POR COPA</h2>
+      {vinosCopa
         .filter((producto) => producto.activo === true)
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">

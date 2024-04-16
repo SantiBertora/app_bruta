@@ -2,8 +2,8 @@ import React from 'react'
 
 const Info = () => {
   return (
-    <div>
-      Luis de la Torre 818
+    <div id='info'>
+      <p id='direccion'>Luis de la Torre 818</p>
       
     </div>
   )

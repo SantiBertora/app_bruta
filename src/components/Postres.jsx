@@ -3,6 +3,20 @@ import { useEffect, useState } from "react";
 import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
 
 const Postres = ({ menu, subFilter }) => {
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+
+  const mostrarProducto = (producto) => {
+    setProductoSeleccionado(producto);
+    Swal.fire({
+      title: producto.nombre,
+      text: producto.descripcion,
+      imageUrl: producto.foto,
+      imageAlt: "Custom image",
+      confirmButtonText: "Cerrar",
+    });
+  };
+
   const postres = menu.filter(
     (producto) => producto.clasificacion === "postre"
   );
@@ -71,7 +85,7 @@ useEffect(() => {
       {postres
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
               <Stack className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>

@@ -18,56 +18,54 @@ const Filtros = () => {
       "SIN ALCOHOL",
       "VERMUTS",
       "CERVEZAS",
-      "LICORES Y DESTILADOS"
+      "DESTILADOS",
     ],
-    vinos: ["TODOS", "TINTOS","ROSADOS", "BLANCOS", "ESPUMANTES"],
+    vinos: ["TODOS", "TINTOS", "ROSADOS", "BLANCOS", "ESPUMANTES", "VINOS POR COPA"],
     menú: ["TODOS", "VEGGIE", "SIN GLUTEN"],
-    postres: ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
+    "postres y digestivos": ["TODOS", "POSTRES", "CAFETERÍA", "DIGESTIVOS"],
   };
 
   const handleMainFilterChange = (filter) => {
     setMainFilter(filter);
-    setSubFilter('TODOS');
+    setSubFilter("TODOS");
   };
 
   const handleSubFilterChange = (filter) => {
     setSubFilter(filter);
   };
 
-  const filtros = document.getElementById('filtroPrincipal');
+  const filtros = document.getElementById("filtroPrincipal");
 
   return (
     <div>
       <div id="filtros">
-      <div id="filtroPrincipal">
-        {Object.keys(subFilters).map((filter) => (
-          <button
-            id="btnPrincipal"
-            key={filter}
-            onClick={() => handleMainFilterChange(filter)}
-            className={mainFilter === filter ? "active" : ""}
-          >
-            {filter.toUpperCase()}
-          </button>
-        ))}
-      </div>
-      <div>
-        {mainFilter && subFilters[mainFilter] && (
-          <div id="filtroSub">
-            <select
-              id="dropdownMenu"
-              value={subFilter}
-              onChange={(event) => handleSubFilterChange(event.target.value)}
+        <div id="filtroPrincipal">
+          {Object.keys(subFilters).map((filter) => (
+            <button
+              id="btnPrincipal"
+              key={filter}
+              onClick={() => handleMainFilterChange(filter)}
+              className={mainFilter === filter ? "active" : ""}
             >
-              {subFilters[mainFilter].map((subFilterOption) => (
-                <option key={subFilterOption} value={subFilterOption}>
-                  {subFilterOption}
-                </option>
-              ))}
-            </select>
-          </div>
-        )}
-      </div>
+              {filter.toUpperCase()}
+            </button>
+          ))}
+        </div>
+          {mainFilter && subFilters[mainFilter] && (
+            <div id="filtroSub">
+              <select
+                id="dropdownMenu"
+                value={subFilter}
+                onChange={(event) => handleSubFilterChange(event.target.value)}
+              >
+                {subFilters[mainFilter].map((subFilterOption) => (
+                  <option key={subFilterOption} value={subFilterOption}>
+                    {subFilterOption}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
       </div>
       <Menu mainFilter={mainFilter} subFilter={subFilter} />
     </div>

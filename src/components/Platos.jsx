@@ -1,8 +1,22 @@
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 
 const Platos = ({ menu, subFilter }) => {
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+
+  const mostrarProducto = (producto) => {
+    setProductoSeleccionado(producto);
+    Swal.fire({
+      title: producto.nombre,
+      text: producto.descripcion,
+      imageUrl: producto.foto,
+      imageAlt: "Custom image",
+      confirmButtonText: "Cerrar",
+    });
+  };
+
 
   if (subFilter === "VEGGIE") {
     menu = menu.filter(
@@ -13,12 +27,7 @@ const Platos = ({ menu, subFilter }) => {
       (producto) =>
         producto.sinGluten === true || producto.opcionSinGluten === true
     );
-  } else if (subFilter === "SIN LACTOSA") {
-    menu = menu.filter(
-      (producto) =>
-        producto.sinLactosa === true || producto.opcionSinLactosa === true
-    );
-  }
+  };
 
   return (
     <div>
@@ -55,8 +64,7 @@ const Platos = ({ menu, subFilter }) => {
         .filter((producto) => producto.activo === true)
         .map((producto) => (
           
-          <Card key={producto.nombre} className="cardMenu">
-            <Link to={`/producto/${producto.id}`}>
+          <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -135,7 +143,6 @@ const Platos = ({ menu, subFilter }) => {
                 )}
               </div>
             </CardBody>
-            </Link>
           </Card>
           
         ))}

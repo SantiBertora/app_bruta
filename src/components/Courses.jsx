@@ -2,6 +2,20 @@ import React from "react";
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 
 const Courses = ({ menu, subFilter }) => {
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+
+  const mostrarProducto = (producto) => {
+    setProductoSeleccionado(producto);
+    Swal.fire({
+      title: producto.nombre,
+      text: producto.descripcion,
+      imageUrl: producto.foto,
+      imageAlt: "Custom image",
+      confirmButtonText: "Cerrar",
+    });
+  };
+
   if (subFilter === "VEGETARIANS") {
     menu = menu.filter(
       (producto) => producto.veggie === true || producto.opcionVeggie === true
@@ -52,7 +66,7 @@ const Courses = ({ menu, subFilter }) => {
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card key={producto.nombre} className="cardMenu">
+          <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>

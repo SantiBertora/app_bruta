@@ -58,7 +58,7 @@ const Menu = ({ mainFilter, subFilter}) => {
     menu.push(...platos);
   } else if (mainFilter === 'bebidas') {
     menu.push(...bebidas);
-  } else if (mainFilter === 'postres') {
+  } else if (mainFilter === 'postres y digestivos') {
     menu.push(...postres);
   } else if (mainFilter === 'vinos') {
     menu.push(...vinos);
@@ -82,7 +82,7 @@ const Menu = ({ mainFilter, subFilter}) => {
             <Platos menu={menu} subFilter={subFilter} />
           </div>
         ) 
-      } else if (mainFilter === 'postres') {
+      } else if (mainFilter === 'postres y digestivos') {
         return (
           <div> 
             <Postres menu={menu} subFilter={subFilter} />

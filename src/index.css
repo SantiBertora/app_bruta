@@ -105,6 +105,16 @@
   position: relative;
 }
 
+#info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#direccion {
+  font-style: italic;
+}
+
 #btnPrincipal {
   background-color: rgb(163, 163, 163);
   border: 1px solid black;
@@ -116,11 +126,15 @@
 }
 
 #filtros {
+  display: grid;
+  
+
   position: sticky;
   top: 0;
   z-index: 2;
   background-color: rgb(116, 116, 116);
   padding: 5px;
+
 }
 
 #filtroPrincipal {

@@ -3,6 +3,19 @@ import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 const Bebidas = ({ menu, subFilter }) => {
+  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
+
+
+  const mostrarProducto = (producto) => {
+    setProductoSeleccionado(producto);
+    Swal.fire({
+      title: producto.nombre,
+      text: producto.descripcion,
+      imageUrl: producto.foto,
+      imageAlt: "Custom image",
+      confirmButtonText: "Cerrar",
+    });
+  };
     
   const productosAperitivo = menu.filter(
     (producto) => producto.clasificacion === "aperitivo"
@@ -79,7 +92,7 @@ useEffect(() => {
           // Calcula la posición para la opción 7
           posicionScroll = document.getElementById('cervezas').offsetTop - alturaFiltros;
           break;
-        case 'LICORES Y DESTILADOS':
+        case 'DESTILADOS':
           // Calcula la posición para la opción 8
           posicionScroll = document.getElementById('destilados').offsetTop - alturaFiltros;
           break;
@@ -106,7 +119,7 @@ useEffect(() => {
       <h2 id="aperitivos" className="titulo">NUESTROS APERITIVOS</h2>
       {productosAperitivo.filter((producto) => producto.activo === true)
       .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu">
+        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -129,7 +142,7 @@ useEffect(() => {
       <h2 id="gintonics" className="titulo">NUESTROS GINTONICS</h2>
       {productosGintonic.filter((producto) => producto.activo === true)
       .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu">
+        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -152,7 +165,7 @@ useEffect(() => {
         <h2 id="autor" className="titulo">NUESTROS CÓCTELES DE AUTOR</h2>
         {productosAutor.filter((producto) => producto.activo === true)
       .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
                 <CardBody className="productContainer">
                 <div className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -175,7 +188,7 @@ useEffect(() => {
         <h2 id="clasicos" className="titulo">NUESTROS CÓCTELES CLÁSICOS</h2>
         {productosClasico.filter((producto) => producto.activo === true)
       .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu">
+        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
             <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
@@ -197,8 +210,20 @@ useEffect(() => {
         ))}
         <h2 id="sinAlcohol" className="titulo">SIN ALCOHOL</h2>
         {productosSinAlcohol.filter((producto) => producto.activo === true)
+        .sort((a, b) => {
+          // Si a tiene la característica "botella" pero b no, a debería ir después de b
+          if (a.botella && !b.botella) {
+            return 1;
+          }
+          // Si b tiene la característica "botella" pero a no, b debería ir después de a
+          if (!a.botella && b.botella) {
+            return -1;
+          }
+          // En cualquier otro caso, conserva el orden actual
+          return 0;
+        })
       .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu">
+            <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
                 <CardBody className="productContainer">
                 <div className="datosMenu">
                     <Heading size="md">{producto.nombre}</Heading>
@@ -244,7 +269,7 @@ useEffect(() => {
                 </CardBody>
             </Card>
             ))}
-        <h2 id="destilados" className="titulo">LICORES Y DESTILADOS</h2>
+        <h2 id="destilados" className="titulo">DESTILADOS</h2>
         {productosDestilado.filter((producto) => producto.activo === true)
       .map((producto) => (
             <Card key={producto.nombre} className="cardMenu">
