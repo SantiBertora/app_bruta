@@ -5,7 +5,6 @@ import { useEffect, useState } from "react";
 const Bebidas = ({ menu, subFilter }) => {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-
   const mostrarProducto = (producto) => {
     setProductoSeleccionado(producto);
     Swal.fire({
@@ -16,7 +15,7 @@ const Bebidas = ({ menu, subFilter }) => {
       confirmButtonText: "Cerrar",
     });
   };
-    
+
   const productosAperitivo = menu.filter(
     (producto) => producto.clasificacion === "aperitivo"
   );
@@ -42,59 +41,65 @@ const Bebidas = ({ menu, subFilter }) => {
     (producto) => producto.clasificacion === "destilado"
   );
 
-// Obtener la altura del componente "filtros"
+  // Obtener la altura del componente "filtros"
 
-const [alturaFiltros, setAlturaFiltros] = useState(null);
+  const [alturaFiltros, setAlturaFiltros] = useState(null);
 
-useEffect(() => {
-  const filtrosElement = document.getElementById("filtros");
-  if (filtrosElement) {
-    const altura = filtrosElement.offsetHeight;
-    setAlturaFiltros(altura);
-  }
-}, []);
+  useEffect(() => {
+    const filtrosElement = document.getElementById("filtros");
+    if (filtrosElement) {
+      const altura = filtrosElement.offsetHeight;
+      setAlturaFiltros(altura);
+    }
+  }, []);
 
-
-
-   // Función para manejar cambios en subFilter
-   useEffect(() => {
+  // Función para manejar cambios en subFilter
+  useEffect(() => {
     // Función para calcular la posición de scroll basada en la opción seleccionada
     const calcularPosicionScroll = () => {
       let posicionScroll = 0;
 
       // Calcula la posición de scroll basada en el valor de subFilter
       switch (subFilter) {
-        case 'APERITIVOS':
+        case "APERITIVOS":
           // Calcula la posición para la opción 1
-          posicionScroll = document.getElementById('aperitivos').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("aperitivos").offsetTop - alturaFiltros;
           break;
-        case 'GINTONICS':
+        case "GINTONICS":
           // Calcula la posición para la opción 2
-          posicionScroll = document.getElementById('gintonics').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("gintonics").offsetTop - alturaFiltros;
           break;
-        case 'OTROS CÓCTELES DE AUTOR':
+        case "OTROS CÓCTELES DE AUTOR":
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById('autor').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("autor").offsetTop - alturaFiltros;
           break;
-        case 'OTROS CÓCTELES CLÁSICOS':
+        case "OTROS CÓCTELES CLÁSICOS":
           // Calcula la posición para la opción 4
-          posicionScroll = document.getElementById('clasicos').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("clasicos").offsetTop - alturaFiltros;
           break;
-        case 'SIN ALCOHOL':
+        case "SIN ALCOHOL":
           // Calcula la posición para la opción 5
-          posicionScroll = document.getElementById('sinAlcohol').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("sinAlcohol").offsetTop - alturaFiltros;
           break;
-        case 'VERMUTS':
+        case "VERMUTS":
           // Calcula la posición para la opción 6
-          posicionScroll = document.getElementById('vermuts').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("vermuts").offsetTop - alturaFiltros;
           break;
-        case 'CERVEZAS':
+        case "CERVEZAS":
           // Calcula la posición para la opción 7
-          posicionScroll = document.getElementById('cervezas').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("cervezas").offsetTop - alturaFiltros;
           break;
-        case 'DESTILADOS':
+        case "DESTILADOS":
           // Calcula la posición para la opción 8
-          posicionScroll = document.getElementById('destilados').offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("destilados").offsetTop - alturaFiltros;
           break;
         // Agrega más casos según tus necesidades
         default:
@@ -106,7 +111,7 @@ useEffect(() => {
       // Realiza el scroll
       window.scrollTo({
         top: posicionScroll,
-        behavior: 'smooth', // Esto hace el scroll suave, puedes cambiarlo si lo deseas
+        behavior: "smooth", // Esto hace el scroll suave, puedes cambiarlo si lo deseas
       });
     };
 
@@ -116,64 +121,24 @@ useEffect(() => {
 
   return (
     <div>
-      <h2 id="aperitivos" className="titulo">NUESTROS APERITIVOS</h2>
-      {productosAperitivo.filter((producto) => producto.activo === true)
-      .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
+      <h2 id="aperitivos" className="titulo">
+        NUESTROS APERITIVOS
+      </h2>
+      {productosAperitivo
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
             <CardBody className="productContainer">
-            <div className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-                 <Text className="precio">${producto.precio}</Text>
-
-            </div>
-            <Text>{producto.descripcion}</Text>
-            <div className="caracteristicas">
-            {producto.picante === true && (
-              <img
-                className="imgCaracteristica"
-                src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
-                alt="picante"
-              />
-            )}
-            </div>
-            </CardBody>
-        </Card>
-        ))}
-      <h2 id="gintonics" className="titulo">NUESTROS GINTONICS</h2>
-      {productosGintonic.filter((producto) => producto.activo === true)
-      .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
-            <CardBody className="productContainer">
-            <div className="datosMenu">
-                <Heading size="md">{producto.nombre}</Heading>
-                 <Text className="precio">${producto.precio}</Text>
-
-            </div>
-            <Text>{producto.descripcion}</Text>
-            <div className="caracteristicas">
-            {producto.picante === true && (
-              <img
-                className="imgCaracteristica"
-                src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
-                alt="picante"
-              />
-            )}
-            </div>
-            </CardBody>
-        </Card>
-        ))}
-        <h2 id="autor" className="titulo">NUESTROS CÓCTELES DE AUTOR</h2>
-        {productosAutor.filter((producto) => producto.activo === true)
-      .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
-                <CardBody className="productContainer">
-                <div className="datosMenu">
-                    <Heading size="md">{producto.nombre}</Heading>
-                     <Text className="precio">${producto.precio}</Text>
-
-                </div>
-                <Text>{producto.descripcion}</Text>
-                <div className="caracteristicas">
+                <Text className="precio">${producto.precio}</Text>
+              </div>
+              <Text>{producto.descripcion}</Text>
+              <div className="caracteristicas">
                 {producto.picante === true && (
                   <img
                     className="imgCaracteristica"
@@ -181,35 +146,102 @@ useEffect(() => {
                     alt="picante"
                   />
                 )}
-                </div>
-                </CardBody>
-            </Card>
-            ))}
-        <h2 id="clasicos" className="titulo">NUESTROS CÓCTELES CLÁSICOS</h2>
-        {productosClasico.filter((producto) => producto.activo === true)
-      .map((producto) => (
-        <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
-            <CardBody className="productContainer">
-            <div className="datosMenu">
-                <Heading size="md">{producto.nombre}</Heading>
-                 <Text className="precio">${producto.precio}</Text>
-
-            </div>
-            <Text>{producto.descripcion}</Text>
-            <div className="caracteristicas">
-            {producto.picante === true && (
-              <img
-                className="imgCaracteristica"
-                src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
-                alt="picante"
-              />
-            )}
-            </div>
+              </div>
             </CardBody>
-        </Card>
+          </Card>
         ))}
-        <h2 id="sinAlcohol" className="titulo">SIN ALCOHOL</h2>
-        {productosSinAlcohol.filter((producto) => producto.activo === true)
+      <h2 id="gintonics" className="titulo">
+        NUESTROS GINTONICS
+      </h2>
+      {productosGintonic
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
+              <Text>{producto.descripcion}</Text>
+              <div className="caracteristicas">
+                {producto.picante === true && (
+                  <img
+                    className="imgCaracteristica"
+                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
+                    alt="picante"
+                  />
+                )}
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      <h2 id="autor" className="titulo">
+        NUESTROS CÓCTELES DE AUTOR
+      </h2>
+      {productosAutor
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
+              <Text>{producto.descripcion}</Text>
+              <div className="caracteristicas">
+                {producto.picante === true && (
+                  <img
+                    className="imgCaracteristica"
+                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
+                    alt="picante"
+                  />
+                )}
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      <h2 id="clasicos" className="titulo">
+        NUESTROS CÓCTELES CLÁSICOS
+      </h2>
+      {productosClasico
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
+              <Text>{producto.descripcion}</Text>
+              <div className="caracteristicas">
+                {producto.picante === true && (
+                  <img
+                    className="imgCaracteristica"
+                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/picante.png?alt=media&token=63af4278-206b-4e6f-904c-ba72f2285a4b"
+                    alt="picante"
+                  />
+                )}
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      <h2 id="sinAlcohol" className="titulo">
+        SIN ALCOHOL
+      </h2>
+      {productosSinAlcohol
+        .filter((producto) => producto.activo === true)
         .sort((a, b) => {
           // Si a tiene la característica "botella" pero b no, a debería ir después de b
           if (a.botella && !b.botella) {
@@ -222,16 +254,19 @@ useEffect(() => {
           // En cualquier otro caso, conserva el orden actual
           return 0;
         })
-      .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
-                <CardBody className="productContainer">
-                <div className="datosMenu">
-                    <Heading size="md">{producto.nombre}</Heading>
-                     <Text className="precio">${producto.precio}</Text>
-
-                </div>
-                <Text>{producto.descripcion}</Text>
-                <div className="caracteristicas">
+        .map((producto) => (
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
+              <Text>{producto.descripcion}</Text>
+              <div className="caracteristicas">
                 {producto.picante === true && (
                   <img
                     className="imgCaracteristica"
@@ -239,48 +274,57 @@ useEffect(() => {
                     alt="picante"
                   />
                 )}
-                </div>
-                </CardBody>
-            </Card>
-            ))}
-        <h2 id="vermuts" className="titulo">VERMUTS</h2>
-        {productosVermouth.filter((producto) => producto.activo === true)
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      <h2 id="vermuts" className="titulo">
+        VERMUTS
+      </h2>
+      {productosVermouth
+        .filter((producto) => producto.activo === true)
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
-              <CardBody className="productContainer">
+            <CardBody className="productContainer">
               <div className="datosMenu">
-                  <Heading size="md">{producto.nombre}</Heading>
-                   <Text className="precio">${producto.precio}</Text>
-
+                <Heading size="md">{producto.nombre}</Heading>
+                <Text className="precio">${producto.precio}</Text>
               </div>
-              <Text>{producto.descripcion}</Text> 
-              </CardBody>
+              <Text>{producto.descripcion}</Text>
+            </CardBody>
           </Card>
-          ))}
-        <h2 id="cervezas" className="titulo">CERVEZAS</h2>
-        {productosCerveza.filter((producto) => producto.activo === true)
-      .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu">
-                <CardBody className="productContainer">
-                <Stack className="datosMenu">
-                    <Heading size="md">{producto.nombre}</Heading>
-                </Stack>
+        ))}
+      <h2 id="cervezas" className="titulo">
+        CERVEZAS
+      </h2>
+      {productosCerveza
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card key={producto.nombre} className="cardMenu">
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
+
                 <Text className="precio">${producto.precio}</Text>
-                </CardBody>
-            </Card>
-            ))}
-        <h2 id="destilados" className="titulo">DESTILADOS</h2>
-        {productosDestilado.filter((producto) => producto.activo === true)
-      .map((producto) => (
-            <Card key={producto.nombre} className="cardMenu">
-                <CardBody className="productContainer">
-                <Stack className="datosMenu">
-                    <Heading size="md">{producto.nombre}</Heading>
-                </Stack>
+              </div>
+            </CardBody>
+          </Card>
+        ))}
+      <h2 id="destilados" className="titulo">
+        DESTILADOS
+      </h2>
+      {productosDestilado
+        .filter((producto) => producto.activo === true)
+        .map((producto) => (
+          <Card key={producto.nombre} className="cardMenu">
+            <CardBody className="productContainer">
+              <div className="datosMenu">
+                <Heading size="md">{producto.nombre}</Heading>
                 <Text className="precio">${producto.precio}</Text>
-                </CardBody>
-            </Card>
-            ))}
+              </div>
+            </CardBody>
+          </Card>
+        ))}
     </div>
   );
 };

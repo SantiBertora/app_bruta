@@ -133,10 +133,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -146,10 +146,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -159,10 +159,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -172,10 +172,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -185,10 +185,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -198,10 +198,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -211,10 +211,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -224,10 +224,10 @@ useEffect(() => {
           .map((producto) => (
             <Card key={producto.nombre} className="cardMenu">
               <CardBody className="productContainer">
-                <Stack className="datosMenu">
+                <div className="datosMenu">
                   <Heading size="md">{producto.nombre}</Heading>
-                </Stack>
-                <Text className="precio">${producto.precio}</Text>
+                  <Text className="precio">${producto.precio}</Text>
+                </div>
               </CardBody>
             </Card>
           ))}
@@ -238,10 +238,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -251,10 +251,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -264,10 +264,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -277,23 +277,23 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
-      <h3 className="subTitulo">Otros</h3>
+      <h3 className="subTitulo">OTROS</h3>
       {otrosBlancos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -303,10 +303,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
@@ -316,10 +316,10 @@ useEffect(() => {
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}

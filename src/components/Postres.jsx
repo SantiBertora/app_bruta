@@ -5,7 +5,6 @@ import { Card, CardBody, Stack, Heading, Text } from "@chakra-ui/react";
 const Postres = ({ menu, subFilter }) => {
   const [productoSeleccionado, setProductoSeleccionado] = useState(null);
 
-
   const mostrarProducto = (producto) => {
     setProductoSeleccionado(producto);
     Swal.fire({
@@ -27,16 +26,15 @@ const Postres = ({ menu, subFilter }) => {
 
   // Obtener la altura del componente "filtros"
 
-const [alturaFiltros, setAlturaFiltros] = useState(null);
+  const [alturaFiltros, setAlturaFiltros] = useState(null);
 
-useEffect(() => {
-  const filtrosElement = document.getElementById("filtros");
-  if (filtrosElement) {
-    const altura = filtrosElement.offsetHeight;
-    setAlturaFiltros(altura);
-  }
-}, []);
-
+  useEffect(() => {
+    const filtrosElement = document.getElementById("filtros");
+    if (filtrosElement) {
+      const altura = filtrosElement.offsetHeight;
+      setAlturaFiltros(altura);
+    }
+  }, []);
 
   // Función para manejar cambios en subFilter
   useEffect(() => {
@@ -48,15 +46,18 @@ useEffect(() => {
       switch (subFilter) {
         case "POSTRES":
           // Calcula la posición para la opción 1
-          posicionScroll = document.getElementById("postres").offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("postres").offsetTop - alturaFiltros;
           break;
         case "CAFETERÍA":
           // Calcula la posición para la opción 2
-          posicionScroll = document.getElementById("cafes").offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("cafes").offsetTop - alturaFiltros;
           break;
         case "DIGESTIVOS":
           // Calcula la posición para la opción 3
-          posicionScroll = document.getElementById("digestivos").offsetTop - alturaFiltros;
+          posicionScroll =
+            document.getElementById("digestivos").offsetTop - alturaFiltros;
           break;
       }
 
@@ -81,16 +82,22 @@ useEffect(() => {
           alt="Sin Gluten"
         />
       </div>
-      <h2 id="postres" className="titulo">POSTRES</h2>
+      <h2 id="postres" className="titulo">
+        POSTRES
+      </h2>
       {postres
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
               <Text>{producto.descripcion}</Text>
               <div className="caracteristicas">
                 {producto.sinGluten === true && (
@@ -114,29 +121,33 @@ useEffect(() => {
             </CardBody>
           </Card>
         ))}
-      <h2 id="cafes" className="titulo">CAFETERÍA</h2>
+      <h2 id="cafes" className="titulo">
+        CAFETERÍA
+      </h2>
       {cafes
         .filter((producto) => producto.activo === true)
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
-      <h2 id="digestivos" className="titulo">DIGESTIVOS</h2>
+      <h2 id="digestivos" className="titulo">
+        DIGESTIVOS
+      </h2>
       {digestivos
         .filter((producto) => producto.activo === true)
         .map((producto) => (
           <Card key={producto.nombre} className="cardMenu">
             <CardBody className="productContainer">
-              <Stack className="datosMenu">
+              <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-              </Stack>
-              <Text className="precio">${producto.precio}</Text>
+                <Text className="precio">${producto.precio}</Text>
+              </div>
             </CardBody>
           </Card>
         ))}
