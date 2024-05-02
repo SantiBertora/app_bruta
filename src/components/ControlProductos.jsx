@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from "react";
-import { collection, getDocs, getFirestore, doc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, getDocs, getFirestore, doc, updateDoc } from "firebase/firestore";
+import CrearProducto from "./CrearProducto";
 
 const ControlProductos = () => {
-  const [collectionRenderizada, setColectionRenderizada] = useState("bebidas");
+  const [collectionRenderizada, setCollectionRenderizada] = useState("bebidas");
   const filtros = ["bebidas", "vinos", "platos", "postres"];
   const [platos, setPlatos] = useState([]);
   const [bebidas, setBebidas] = useState([]);
   const [postres, setPostres] = useState([]);
   const [vinos, setVinos] = useState([]);
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
 
   useEffect(() => {
     const db = getFirestore();
@@ -44,6 +46,26 @@ const ControlProductos = () => {
       setVinos(docs);
     });
   }, []);
+
+  const handleMostrarFormulario = () => {
+    setMostrarFormulario(true);
+  };
+
+  const handleCerrarFormulario = () => {
+    setMostrarFormulario(false);
+  };
+
+  const handleCrearProducto = async (nuevoProducto) => {
+    try {
+      const db = getFirestore();
+      const nuevaColleccionRef = collection(db, collectionRenderizada);
+      await addDoc(nuevaColleccionRef, nuevoProducto);
+      // Actualizar la lista de productos después de la creación
+      // ...
+    } catch (error) {
+      console.error("Error al crear el producto:", error.message);
+    }
+  };
 
   const handleChangeActivo = async (producto) => {
 
@@ -92,12 +114,16 @@ const ControlProductos = () => {
         {filtros.map((filtro) => (
           <button
             key={filtro}
-            onClick={() => setColectionRenderizada(filtro)}
+            onClick={() => setCollectionRenderizada(filtro)}
           >
             {filtro}
           </button>
         ))}
         </div>
+        <button onClick={handleMostrarFormulario}>Crear Producto</button>
+        <CrearProducto
+          isOpen={mostrarFormulario} onClose={handleCerrarFormulario}
+        />
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
@@ -132,6 +158,7 @@ const ControlProductos = () => {
             </div>
           </div>
         ))}
+        
     </div>
   )
 }
