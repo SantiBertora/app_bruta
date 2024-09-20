@@ -1,37 +1,7 @@
 import React from "react";
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 
-const Courses = ({ menu, subFilter }) => {
-  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-
-
-  const mostrarProducto = (producto) => {
-    setProductoSeleccionado(producto);
-    Swal.fire({
-      title: producto.nombre,
-      text: producto.descripcion,
-      imageUrl: producto.foto,
-      imageAlt: "Custom image",
-      confirmButtonText: "Cerrar",
-    });
-  };
-
-  if (subFilter === "VEGETARIANS") {
-    menu = menu.filter(
-      (producto) => producto.veggie === true || producto.opcionVeggie === true
-    );
-  } else if (subFilter === "NO GLUTEN") {
-    menu = menu.filter(
-      (producto) =>
-        producto.sinGluten === true || producto.opcionSinGluten === true
-    );
-  } else if (subFilter === "NO LACTOSE") {
-    menu = menu.filter(
-      (producto) =>
-        producto.sinLactosa === true || producto.opcionSinLactosa === true
-    );
-  }
-
+const Courses = ({ menu, mostrarProducto, cubierto }) => {
   return (
     <div>
       <div className="leyenda">
@@ -60,7 +30,7 @@ const Courses = ({ menu, subFilter }) => {
           />
         </div>
         <div className="rowLeyenda">
-          Cubierto = $130
+          Cubierto = ${cubierto?.precio || "N/A"}
         </div>
       </div>
       {menu
@@ -69,11 +39,11 @@ const Courses = ({ menu, subFilter }) => {
           <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
             <CardBody className="productContainer">
               <div className="datosMenu">
-                <Heading size="md">{producto.nombre}</Heading>
+                <Heading size="md">{producto.name}</Heading>
 
                 <Text className="precio">${producto.precio}</Text>
               </div>
-              <Text>{producto.descripcion}</Text>
+              <Text>{producto.description}</Text>
               <div className="caracteristicas">
                 {producto.veggie === true && (
                   <img

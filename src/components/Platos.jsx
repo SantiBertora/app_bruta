@@ -1,34 +1,7 @@
 import { Card, CardBody, Heading, Text } from "@chakra-ui/react";
 import React from "react";
-import { useState } from "react";
 
-const Platos = ({ menu, subFilter }) => {
-  const [productoSeleccionado, setProductoSeleccionado] = useState(null);
-
-
-  const mostrarProducto = (producto) => {
-    setProductoSeleccionado(producto);
-    Swal.fire({
-      title: producto.nombre,
-      text: producto.descripcion,
-      imageUrl: producto.foto,
-      imageAlt: "Custom image",
-      confirmButtonText: "Cerrar",
-    });
-  };
-
-
-  if (subFilter === "VEGGIE") {
-    menu = menu.filter(
-      (producto) => producto.veggie === true || producto.opcionVeggie === true
-    );
-  } else if (subFilter === "SIN GLUTEN") {
-    menu = menu.filter(
-      (producto) =>
-        producto.sinGluten === true || producto.opcionSinGluten === true
-    );
-  };
-
+const Platos = ({ menu, mostrarProducto, cubierto }) => {
   return (
     <div>
       <div className="leyenda">
@@ -57,18 +30,20 @@ const Platos = ({ menu, subFilter }) => {
           />
         </div>
         <div className="rowLeyenda">
-          Cubierto = $130
+          Cubierto = ${cubierto?.precio || "N/A"}
         </div>
       </div>
       {menu
         .filter((producto) => producto.activo === true)
         .map((producto) => (
-          
-          <Card key={producto.nombre} className="cardMenu" onClick={() => mostrarProducto(producto)}>
+          <Card
+            key={producto.nombre}
+            className="cardMenu"
+            onClick={() => mostrarProducto(producto)}
+          >
             <CardBody className="productContainer">
               <div className="datosMenu">
                 <Heading size="md">{producto.nombre}</Heading>
-
                 <Text className="precio">${producto.precio}</Text>
               </div>
               <Text>{producto.descripcion}</Text>
@@ -80,13 +55,6 @@ const Platos = ({ menu, subFilter }) => {
                     alt="veggie"
                   />
                 )}
-                { /*producto.vegano === true && (
-                  <img
-                    className="imgCaracteristica"
-                    src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
-                    alt="vegano"
-                  />
-                ) */}
                 {producto.sinGluten === true && (
                   <img
                     className="imgCaracteristica"
@@ -111,16 +79,6 @@ const Platos = ({ menu, subFilter }) => {
                     />
                   </>
                 )}
-                { /*producto.opcionVegano === true && (
-                  <>
-                    Con opcion{" "}
-                    <img
-                      className="imgCaracteristica"
-                      src="https://firebasestorage.googleapis.com/v0/b/carta-bruta.appspot.com/o/vegano.png?alt=media&token=ffeddda4-ea77-4898-8d37-3c16aa6dc55a"
-                      alt="vegano"
-                    />
-                  </>
-                )*/ }
                 {producto.opcionSinGluten === true && (
                   <>
                     Con opcion{" "}
@@ -144,7 +102,6 @@ const Platos = ({ menu, subFilter }) => {
               </div>
             </CardBody>
           </Card>
-          
         ))}
     </div>
   );

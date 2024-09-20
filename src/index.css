@@ -205,3 +205,28 @@
   background-color: rgb(116, 116, 116);
   font-style: oblique;
 }
+
+input {
+  display: block;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1px;
+}
+
+select {
+  display: inline;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1px;
+}
+
+.btnProducto {
+  background-color: rgb(163, 163, 163);
+  border: 1px solid black;
+  border-radius: 5px;
+  color: black;
+  padding: 5px 10px;
+  font-weight: bold;
+  font-family: "Roboto", sans-serif;
+  display: block;
+}

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Idioma from './Idioma'
+import IdiomaContainer from './IdiomaContainer'
 
 
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
     <ul id='nav'>
       <li className='btnNav'><Link className='btnNav' to={`/menu`}>MENÚ</Link></li>
       <li className='btnNav'>
-        <Idioma />
+        <IdiomaContainer />
       </li>
     </ul>
     </>
